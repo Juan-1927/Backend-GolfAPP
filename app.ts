@@ -5,6 +5,7 @@ import palosRoutes from './src/routes/palos.routes.js';
 import equiposRoutes from './src/routes/equipos.routes.js';
 import vestimentaRoutes from './src/routes/vestimenta.routes.js';
 import loginRoutes from './src/routes/login.routes.js';
+import registroRoutes from './src/routes/registro.routes.js';
 import { errorHandler } from './src/middleware/error.middleware.js';
 
 const app = express();
@@ -33,6 +34,7 @@ app.use('/api/v1/palos', palosRoutes);
 app.use('/api/v1/equipos', equiposRoutes);
 app.use('/api/v1/vestimenta', vestimentaRoutes);
 app.use('/api/v1/login', loginRoutes);
+app.use('/api/v1/registro', registroRoutes);
 
 app.use(errorHandler);
 

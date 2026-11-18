@@ -9,7 +9,14 @@ const PORT = process.env.PORT || 3000;
 
 async function startServer() {
   try {
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS usuarios (
+        usuario TEXT PRIMARY KEY,
+        contrasena_hash TEXT NOT NULL
+      )
+    `);
     await pool.query('SELECT 1 FROM productos LIMIT 1');
+    await pool.query('SELECT 1 FROM usuarios LIMIT 1');
     console.log(`Conectado a PostgreSQL (base de datos: ${process.env.DB_NAME})`);
   } catch (error) {
     console.error(
